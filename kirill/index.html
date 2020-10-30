@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>kirill</title>
+</head>
+
+<body>
+
+<div align="center" id="main" class="col-md-5 mt-4 mx-auto">
+
+    <input size="43" id="txt" type="text" placeholder="Введи текст,цифры появятся автоматом Кирюся" class="number">
+</div>
+<style>
+    #main {
+        padding-top: 50px;
+    }
+    input {
+        border: solid crimson;
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('input.number').keyup(function (event) {
+            if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) {
+                $(this).val(function (index, value) {
+                    return value.replace(/\D/g, "");
+                });
+            }
+
+        });
+    });
+
+    var input = document.querySelector('input.number');
+    input.addEventListener('keyup', function (event) {
+        if (event.which != 8 && event.which != 0 && event.which < 48 || event.which > 57) {
+            this.value = this.value.replace(/\D/g, "");
+        }
+    });
+</script>
+</body>
+
+</html>
